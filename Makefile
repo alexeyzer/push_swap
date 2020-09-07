@@ -6,11 +6,11 @@
 #    By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/18 12:53:57 by alexzudin         #+#    #+#              #
-#    Updated: 2020/08/18 18:00:16 by alexzudin        ###   ########.fr        #
+#    Updated: 2020/09/03 15:05:08 by alexzudin        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main_checker.c readfunc.c
+SRC = main_checker.c readfunc.c parsecommands.c validation.c commands.c
 
 SRC_DIR = src/
 

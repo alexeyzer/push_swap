@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 22:55:46 by aguiller          #+#    #+#             */
-/*   Updated: 2020/06/15 10:51:01 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/08/19 10:24:11 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,14 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <sys/types.h>
+# include <sys/uio.h>
+# define BUFF_SIZE 8
 
+int					get_next_line(const int fd, char **line);
+int					crstr(char **line, char *bufer, int status);
+char				*ft_strjoins(char const *s1, char const *s2);
+char				*ft_strdups(const char *s1);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memccpy(void *destination,

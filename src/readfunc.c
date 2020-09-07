@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 14:04:52 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/08/18 19:54:03 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/07 10:38:40 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,31 +28,19 @@ int isnb(char *a)
 
 t_stack *rd(char **argv, int argc)
 {
-	int i;
 	t_stack *head;
-	t_stack *now;
 
-	i = 1;
 	head = (t_stack*)malloc(sizeof(t_stack));
-	now = head;
-	while (i <= argc)
-	{
-		if (isnb(argv[i]) < 0)
-			endd(head, NULL);
-		now->number = ft_atoi(argv[i]);
-		if ((i + 1) <= argc)
-		{
-			now->down = (t_stack*)malloc(sizeof(t_stack));
-			now = now->down;
-		}
-		i++;
-	}
+	rdd(argv, argc, head);
+	if (duplicates(head) == -1)
+		endd(head, NULL, 1);
 	return (head);
 }
 
-int endd(t_stack *head_a, t_stack *head_b)
+int endd(t_stack *head_a, t_stack *head_b, int status)
 {
-	ft_putendl("Error\n");
+	if (status == 1)
+		ft_putstr_fd("Error\n",2);
 	if (head_a != NULL)
 	{
 		c_stack(head_a);
@@ -63,6 +51,7 @@ int endd(t_stack *head_a, t_stack *head_b)
 		c_stack(head_b);
 		head_b = NULL;
 	}
+	exit(0);
 	return (-1);
 }
 
@@ -71,4 +60,28 @@ void c_stack(t_stack *head)
 	if (head->down != NULL)
 		c_stack(head->down);
 	free(head);
+}
+
+void rdd(char **argv, int argc, t_stack *head)
+{
+	int i;
+	t_stack *now;
+
+	i = 1;
+	now = head;
+	while (i <= argc)
+	{
+		if (isnb(argv[i]) < 0)
+			endd(head, NULL, 1);
+		now->number = ft_atoi(argv[i]);
+		if ((i + 1) <= argc)
+		{
+			now->down = (t_stack*)malloc(sizeof(t_stack));
+			now->down->up = now;
+			now = now->down;
+		}
+		else
+			now->down = NULL;
+		i++;
+	}
 }
