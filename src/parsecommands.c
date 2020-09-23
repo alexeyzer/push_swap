@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 19:23:00 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/07 10:38:56 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/13 14:00:06 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int execcommand(char *str, int size, t_stack **head_a, t_stack **head_b)
 	int command;
 
 	if ( size > 3 || size < 2)
-		return (-1);
+		endd(*head_a, *head_b, 1);
 	else
 	{
 		command = strtoint(str);

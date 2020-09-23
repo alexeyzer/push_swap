@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 22:55:46 by aguiller          #+#    #+#             */
-/*   Updated: 2020/08/19 10:24:11 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/13 13:57:25 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <sys/types.h>
 # include <sys/uio.h>
-# define BUFF_SIZE 8
+# define BUFF_SIZE 1
 
 int					get_next_line(const int fd, char **line);
 int					crstr(char **line, char *bufer, int status);

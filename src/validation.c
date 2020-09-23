@@ -6,13 +6,37 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 14:04:20 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/03 09:39:19 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/23 12:06:28 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int duplicates(t_stack *now)
+t_stack		*strf(char *str, int argc, t_stack *now, int i)
+{
+	int	j;
+
+	j = 0;
+	while (str[j] != '\0')
+	{
+		while (str[j] == ' ')
+			j++;
+		now->number = ft_atoi(&(str[j]));
+		while (str[j] >= '0' && str[j] <= '9')
+			j++;
+		while (str[j] == ' ')
+			j++;
+		if (str[j] >= '0' && str[j] <= '9')
+			now = addelemdown(now);
+		else if (((i + 1) <= argc))
+			now = addelemdown(now);
+		else
+			now->down = NULL;
+	}
+	return (now);
+}
+
+int			duplicates(t_stack *now)
 {
 	int result;
 
@@ -27,7 +51,7 @@ int duplicates(t_stack *now)
 	return (1);
 }
 
-int dupliforhead(t_stack *now)
+int			dupliforhead(t_stack *now)
 {
 	long long int find;
 	find = now->number;
@@ -43,7 +67,7 @@ int dupliforhead(t_stack *now)
 	return (1);
 }
 
-int countofelem(t_stack *now)
+int			countofelem(t_stack *now)
 {
 	int i;
 
@@ -56,7 +80,7 @@ int countofelem(t_stack *now)
 	return (i);
 }
 
-t_stack *becomelast(t_stack *now)
+t_stack		*becomelast(t_stack *now)
 {
 	while(now->down != NULL)
 		now = now->down;

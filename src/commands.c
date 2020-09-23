@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 18:01:02 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/04 10:50:05 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/23 11:59:36 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void push(t_stack **head_add, t_stack **head_from)
 {
 	t_stack *now;
 	int		nubmer;
+
 	if (*head_from != NULL)
 	{
 		if ((*head_from)->down != NULL)

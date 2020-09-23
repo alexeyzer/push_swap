@@ -1,20 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   main_push_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 13:00:11 by aguiller          #+#    #+#             */
-/*   Updated: 2020/09/07 17:04:42 by alexzudin        ###   ########.fr       */
+/*   Created: 2020/09/07 18:38:59 by alexzudin         #+#    #+#             */
+/*   Updated: 2020/09/23 20:02:28 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int		ft_isdigit(int c)
+int		main(int argc, char **argv)
 {
-	if ((unsigned int)c >= '0' && (unsigned int)c <= '9')
-		return (1);
+	t_stack		*head_a;
+	t_stack		*head_b;
+
+	head_b = NULL;
+	if (argc == 1)
+		return (0);
+	if (argc < 1)
+	{
+		ft_putendl("Error\n");
+		return (0);
+	}
+	else
+	{
+		head_a = rd(argv, argc - 1);
+		if (isssort(head_a) == -1)
+			solver(&head_a, &head_b);
+		else
+			endd(head_a, head_b, 0);
+	}
 	return (0);
 }
+
+

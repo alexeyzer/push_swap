@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 12:57:26 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/07 10:37:20 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/23 20:27:19 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void checkresult(t_stack **head_a, t_stack **head_b)
 {
 	if (*head_b != NULL)
 	{
-		endd(*head_a, *head_b, 0);
-		ft_putstr("KO");
+		endd(*head_a, *head_b, 1);
+		ft_putstr("KO\n");
 	}
 	else
 		truee(*head_a, *head_b);
@@ -58,19 +58,19 @@ void truee(t_stack *head_a, t_stack *head_b)
 			number = (head_a)->number;
 			if (findbigger(head_a->down, number) == -1)
 			{
+				ft_putstr("KO\n");
 				endd(head_a, head_b, 0);
-				ft_putstr("KO");
 				return ;
 			}
 			head_a = head_a->down;
 		}
-		ft_putstr("OK");
+		ft_putstr("OK\n");
 		endd(head_a, head_b, 0);
 	}
 	else
 	{
 		endd(head_a, head_b, 0);
-		ft_putstr("KO");
+		ft_putstr("KO\n");
 	}
 }
 
