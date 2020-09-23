@@ -9,7 +9,7 @@
 
 typedef struct				s_stack
 {
-	long long int           number;
+	long double             number;
     struct s_stack          *down;
     struct s_stack          *up;
 }							t_stack;
@@ -53,7 +53,7 @@ int                         nbrtomv(t_stack *h_a, t_stack *h_b);
 t_stack                     *findnbr(int nbr, t_stack *h_a);
 void                        sort(t_stack **h_a, t_stack **h_b);
 int                         lessmass(int *mass, int count);
-void                        moverlittle(t_stack **head, int index, int movement);
+void                        moverlittle(t_stack **head, int index, int movement, int i);
 void                        mover(t_stack **h_a, t_stack **h_b, int index);
 int                         findminin(t_stack *h_a);
 

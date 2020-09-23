@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/23 18:32:20 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/23 20:15:55 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/23 21:18:38 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,20 +77,23 @@ void mover(t_stack **h_a, t_stack **h_b, int index)
 	index_a = getindex(findnbr(now->number, *h_a));
 	moveb = mvtzind(getindex(now), countofelem(*h_b));
 	movea =  mvtzind(index_a, countofelem(*h_a));
-	moverlittle(h_b, getindex(now), moveb);
-	moverlittle(h_a, index_a, movea);
+	moverlittle(h_b, getindex(now), moveb, 1);
+	moverlittle(h_a, index_a, movea, 2);
 	push(h_a, h_b);
 	output_command(4);
 }
 
-void moverlittle(t_stack **head, int index, int movement)
+void moverlittle(t_stack **head, int index, int movement, int i)
 {
 	if (index <= countofelem(*head) / 2)
 	{
 		while(movement != 0)
 		{
 			rotate(*head);
-			output_command(6);
+			if (i == 2)
+				output_command(6);
+			else
+				output_command(7);
 			movement--;
 		}
 	}
@@ -99,7 +102,10 @@ void moverlittle(t_stack **head, int index, int movement)
 		while(movement != 0)
 		{
 			reverserotate(*head);
-			output_command(9);
+			if (i == 2)
+				output_command(9);
+			else
+				output_command(10);
 			movement--;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 14:04:20 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/23 12:06:28 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/23 22:03:25 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int			dupliforhead(t_stack *now)
 {
 	long long int find;
 	find = now->number;
-	if (find > 2147483647 || find < -2147483647)
+	if (find > 2147483647 || find < -2147483648)
 		return (-1);
 	now = now->down;
 	while (now != NULL)

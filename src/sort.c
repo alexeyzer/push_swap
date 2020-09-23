@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/23 17:52:06 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/23 20:22:16 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/23 21:18:58 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void sort(t_stack **h_a, t_stack **h_b)
 	}
 	index = findminin(*h_a);
 	move = mvtzind(index, countofelem(*h_a));
-	moverlittle(h_a, index, move);
+	moverlittle(h_a, index, move, 2);
 }
 
 int nbrtomv(t_stack *h_a, t_stack *h_b)
@@ -79,7 +79,9 @@ int nbrtomv(t_stack *h_a, t_stack *h_b)
 		i++;
 		now = now->down;
 	}
-	return (lessmass(mass, countofelem(h_b)));
+	i = lessmass(mass, countofelem(h_b));
+	free(mass);
+	return (i);
 }
 
 int mvtzind(int index, int count)

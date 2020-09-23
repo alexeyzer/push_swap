@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 14:04:52 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/15 12:04:05 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/23 22:39:00 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,23 @@ int			isnb(char *a)
 {
 	int i;
 	int p;
+	int z;
 
 	i = 0;
 	p = 0;
+	z = 0;
 	while(a[i] != '\0')
 	{
 		if (a[i] == ' ')
 			p++;
+		if (ft_isdigit(a[i]) != 0)
+			z++;
 		if (ft_isdigit(a[i]) == 0 && a[i] != '-' && a[i] != '+' && a[i] != ' ')
 			return (-1);
 		i++;
 	}
+	if(z == 0)
+		return (-1);
 	if (p > 0)
 		return (2);
 	return (1);

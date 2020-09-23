@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 18:01:02 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/23 11:59:36 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/23 21:12:43 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void addtostack(t_stack **head, int nbr)
 		new_head->down = *head;
 		(*head)->up = new_head;
 		*head = new_head;
+		(*head)->up = NULL;
 	}
 	else
 	{
