@@ -6,43 +6,42 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 19:23:00 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/13 14:00:06 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/27 14:09:24 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int parsecommands(t_stack **head_a, t_stack **head_b)//checker parse commands, than execute them and give the result
+int		parsecommands(t_stack **head_a, t_stack **head_b)
 {
 	char	*str;
 
 	while ((get_next_line(0, &str)) > 0)
 	{
-		execcommand(str, ft_strlen(str), head_a, head_b);
+		execc(str, ft_strlen(str), head_a, head_b);
 		free(str);
 	}
 	return (0);
 }
 
-int execcommand(char *str, int size, t_stack **head_a, t_stack **head_b)
+int		execc(char *str, int size, t_stack **h_a, t_stack **h_b)
 {
 	int command;
 
-	if ( size > 3 || size < 2)
-		endd(*head_a, *head_b, 1);
+	if (size > 3 || size < 2)
+		endd(*h_a, *h_b, 1);
 	else
 	{
 		command = strtoint(str);
 		if (command == -1)
-			endd(*head_a, *head_b, 1);
+			endd(*h_a, *h_b, 1);
 		else
-			exec(head_a, head_b, command);
-		
+			exec(h_a, h_b, command);
 	}
 	return (0);
 }
 
-void exec2(t_stack **head_a, t_stack **head_b, int command)
+void	exec2(t_stack **head_a, t_stack **head_b, int command)
 {
 	if (command == 9)
 		reverserotate(*head_a);
@@ -55,7 +54,7 @@ void exec2(t_stack **head_a, t_stack **head_b, int command)
 	}
 }
 
-void exec(t_stack **head_a, t_stack **head_b, int command)
+void	exec(t_stack **head_a, t_stack **head_b, int command)
 {
 	if (command == 1)
 		swap(*head_a);
@@ -83,7 +82,7 @@ void exec(t_stack **head_a, t_stack **head_b, int command)
 		exec2(head_a, head_b, command);
 }
 
-int strtoint(char *str)
+int		strtoint(char *str)
 {
 	if (ft_strcmp(str, "sa") == 0)
 		return (1);

@@ -6,13 +6,13 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/23 17:52:06 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/23 21:18:58 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/25 10:28:17 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void issycle(t_stack *h_a)
+void	issycle(t_stack *h_a)
 {
 	int a;
 	int b;
@@ -23,16 +23,16 @@ void issycle(t_stack *h_a)
 		a = h_a->number;
 		b = h_a->down->number;
 		c = h_a->down->down->number;
-		if ((a < b && b > c && c > a) || (a > b && b < c && c > a) || (a > b && b > c && c < a))
+		if ((a < b && b > c && c > a) || (a > b && b < c && c > a)
+			|| (a > b && b > c && c < a))
 		{
 			swap(h_a);
 			output_command(1);
 		}
-		
 	}
 }
 
-int getindex(t_stack *now)
+int		getindex(t_stack *now)
 {
 	int index;
 
@@ -45,14 +45,14 @@ int getindex(t_stack *now)
 	return (index);
 }
 
-void sort(t_stack **h_a, t_stack **h_b)
+void	sort(t_stack **h_a, t_stack **h_b)
 {
 	int index;
 	int move;
 
 	index = 0;
 	move = 0;
-	while(countofelem(*h_b) != 0)
+	while (countofelem(*h_b) != 0)
 	{
 		index = nbrtomv(*h_a, *h_b);
 		mover(h_a, h_b, index);
@@ -62,20 +62,20 @@ void sort(t_stack **h_a, t_stack **h_b)
 	moverlittle(h_a, index, move, 2);
 }
 
-int nbrtomv(t_stack *h_a, t_stack *h_b)
+int		nbrtomv(t_stack *h_a, t_stack *h_b)
 {
-	int *mass;
-	int i;
+	int		*mass;
+	int		i;
 	t_stack *now;
 
 	i = 0;
 	now = h_b;
 	mass = (int*)malloc(sizeof(int) * countofelem(h_b));
-	while(now != NULL)
+	while (now != NULL)
 	{
-		//printf("nbr is %lld count to do =", now->number);
-		mass[i] = (mvtzind(getindex(now), countofelem(h_b)) + mvtzind(getindex(findnbr(now->number, h_a)), countofelem(h_a)) + 1);
-		//printf("%d\n", mass[i]);
+		mass[i] = (mvtzind(getindex(now), countofelem(h_b))
+			+ mvtzind(getindex(findnbr(now->number, h_a))
+			, countofelem(h_a)) + 1);
 		i++;
 		now = now->down;
 	}
@@ -84,7 +84,7 @@ int nbrtomv(t_stack *h_a, t_stack *h_b)
 	return (i);
 }
 
-int mvtzind(int index, int count)
+int		mvtzind(int index, int count)
 {
 	if (index <= (count / 2))
 		return (index);

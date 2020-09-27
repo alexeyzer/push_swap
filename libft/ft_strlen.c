@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 21:10:54 by aguiller          #+#    #+#             */
-/*   Updated: 2020/06/02 16:28:58 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/24 08:54:43 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 size_t	ft_strlen(const char *s)
 {
 	size_t i;
+
 	if (s == NULL)
 		return (0);
-
 	i = 0;
 	while (s[i])
 		i++;

@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 14:04:20 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/23 22:03:25 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/25 10:32:50 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int			duplicates(t_stack *now)
 int			dupliforhead(t_stack *now)
 {
 	long long int find;
+
 	find = now->number;
 	if (find > 2147483647 || find < -2147483648)
 		return (-1);
@@ -72,7 +73,7 @@ int			countofelem(t_stack *now)
 	int i;
 
 	i = 0;
-	while(now != NULL)
+	while (now != NULL)
 	{
 		i++;
 		now = now->down;
@@ -80,10 +81,9 @@ int			countofelem(t_stack *now)
 	return (i);
 }
 
-t_stack		*becomelast(t_stack *now)
+t_stack		*blast(t_stack *now)
 {
-	while(now->down != NULL)
+	while (now->down != NULL)
 		now = now->down;
 	return (now);
 }
-

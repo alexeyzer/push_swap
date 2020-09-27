@@ -6,13 +6,13 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 12:57:26 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/23 21:56:04 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/24 09:07:52 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_stack		*head_a;
 	t_stack		*head_b;
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 	return (0);
 }
 
-void checkresult(t_stack **head_a, t_stack **head_b)
+void	checkresult(t_stack **head_a, t_stack **head_b)
 {
 	if (*head_b != NULL)
 	{
@@ -45,7 +45,7 @@ void checkresult(t_stack **head_a, t_stack **head_b)
 		truee(*head_a, *head_b);
 }
 
-void truee(t_stack *head_a, t_stack *head_b)
+void	truee(t_stack *head_a, t_stack *head_b)
 {
 	int number;
 
@@ -72,13 +72,13 @@ void truee(t_stack *head_a, t_stack *head_b)
 	}
 }
 
-int findbigger(t_stack *now, int number)
+int		findbigger(t_stack *now, int number)
 {
 	while (now != NULL)
 	{
 		if (now->number < number)
 			return (-1);
-			now = now->down;
+		now = now->down;
 	}
 	return (0);
 }

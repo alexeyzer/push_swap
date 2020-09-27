@@ -6,48 +6,48 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 14:31:00 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/23 21:59:43 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/27 13:10:23 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void solver(t_stack **h_a, t_stack **h_b)
+void	solver(t_stack **h_a, t_stack **h_b)
 {
 	if (countofelem(*h_a) > 3)
-		leftelem(fdmin(*h_a), fdmax(*h_a), fdmid(*h_a), h_a, h_b);
+		leftelem(fdmin(*h_a), fdmax(*h_a), h_a, h_b);
 	issycle(*h_a);
 	sort(h_a, h_b);
 }
 
-void leftelem(int min, int max, int mid, t_stack **head_a, t_stack **head_b)
+void	leftelem(int min, int max, t_stack **h_a, t_stack **h_b)
 {
-	while (countofelem(*head_a) > 3)
+	while (countofelem(*h_a) > 3)
 	{
-		if ((*head_a)->number != min && (*head_a)->number != max && (*head_a)->number != mid)
+		if (correctnumb(*h_a, min, fdmid(*h_a), max))
 		{
-			push(head_b,head_a);
+			push(h_b, h_a);
 			output_command(5);
 		}
-		else if ((*head_a)->down->number != min && (*head_a)->down->number != max && (*head_a)->down->number != mid)
+		else if (correctnumb((*h_a)->down, min, fdmid(*h_a), max))
 		{
-			rotate(*head_a);
+			rotate(*h_a);
 			output_command(6);
 		}
-		else if (becomelast(*head_a)->number != min && becomelast(*head_a)->number != max && becomelast(*head_a)->number != mid)
+		else if (correctnumb(blast(*h_a), min, fdmid(*h_a), max))
 		{
-			reverserotate(*head_a);
+			reverserotate(*h_a);
 			output_command(9);
 		}
 		else
 		{
-			rotate(*head_a);
+			rotate(*h_a);
 			output_command(6);
 		}
 	}
 }
 
-int *bubblesort(int count, int *massive)
+int		*bubblesort(int count, int *massive)
 {
 	int i;
 	int j;
@@ -56,10 +56,10 @@ int *bubblesort(int count, int *massive)
 	i = 0;
 	j = 0;
 	perenos = 0;
-	while(i < count)
+	while (i < count)
 	{
 		j = 0;
-		while(j < count)
+		while (j < count)
 		{
 			if (massive[i] < massive[j])
 			{
@@ -74,7 +74,7 @@ int *bubblesort(int count, int *massive)
 	return (massive);
 }
 
-int *trnslttomass(int *massive, t_stack *head)
+int		*trnslttomass(int *massive, t_stack *head)
 {
 	int nbr;
 	int i;
@@ -90,13 +90,13 @@ int *trnslttomass(int *massive, t_stack *head)
 	return (massive);
 }
 
-int findbigger(t_stack *now, int number)
+int		findbigger(t_stack *now, int number)
 {
 	while (now != NULL)
 	{
 		if (now->number < number)
 			return (-1);
-			now = now->down;
+		now = now->down;
 	}
 	return (0);
 }

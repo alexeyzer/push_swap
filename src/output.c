@@ -6,13 +6,13 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/23 11:37:28 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/23 19:52:09 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/24 09:07:50 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void output_command(int i)
+void	output_command(int i)
 {
 	if (i == 1)
 		write(1, "sa\n", 3);
@@ -38,7 +38,7 @@ void output_command(int i)
 		write(1, "rrr\n", 4);
 }
 
-int fdmin(t_stack	*now)
+int		fdmin(t_stack *now)
 {
 	int min;
 
@@ -52,7 +52,7 @@ int fdmin(t_stack	*now)
 	return (min);
 }
 
-int fdmax(t_stack	*now)
+int		fdmax(t_stack *now)
 {
 	int max;
 
@@ -66,7 +66,7 @@ int fdmax(t_stack	*now)
 	return (max);
 }
 
-int isssort(t_stack	*head_a)
+int		isssort(t_stack *head_a)
 {
 	int number;
 
@@ -85,7 +85,7 @@ int isssort(t_stack	*head_a)
 	return (1);
 }
 
-int fdmid(t_stack	*now)
+int		fdmid(t_stack *now)
 {
 	int count;
 	int a;

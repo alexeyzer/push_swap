@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/07 18:38:59 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/23 20:02:28 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/09/24 09:07:51 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,3 @@ int		main(int argc, char **argv)
 	}
 	return (0);
 }
-
-
