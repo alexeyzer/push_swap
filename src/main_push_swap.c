@@ -30,8 +30,7 @@ int		main(int argc, char **argv)
 		head_a = rd(argv, argc - 1);
 		if (isssort(head_a) == -1)
 			solver(&head_a, &head_b);
-		else
-			endd(head_a, head_b, 0);
+		endd(head_a, head_b, 0);
 	}
 	return (0);
 }
