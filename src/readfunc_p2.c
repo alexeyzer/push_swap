@@ -27,6 +27,7 @@ t_stack		*addelemdown(t_stack *now)
 	now->down = (t_stack*)malloc(sizeof(t_stack));
 	now->down->up = now;
 	now = now->down;
+	now->down = NULL;
 	return (now);
 }
 
