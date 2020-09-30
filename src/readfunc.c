@@ -43,6 +43,8 @@ t_stack		*rd(char **argv, int argc)
 	t_stack *head;
 
 	head = (t_stack*)malloc(sizeof(t_stack));
+	head->down = NULL;
+	head->up = NULL;
 	rdd(argv, argc, head);
 	if (duplicates(head) == -1)
 	{

@@ -22,11 +22,12 @@ t_stack		*strf(char *str, int argc, t_stack *now, int i)
 		while (str[j] == ' ')
 			j++;
 		now->number = ft_atoi(&(str[j]));
-		while (str[j] >= '0' && str[j] <= '9')
+		while ((str[j] >= '0' && str[j] <= '9')
+			|| str[j] == '+' || str[j] == '-')
 			j++;
 		while (str[j] == ' ')
 			j++;
-		if (str[j] >= '0' && str[j] <= '9')
+		if ((str[j] >= '0' && str[j] <= '9') || str[j] == '+' || str[j] == '-')
 			now = addelemdown(now);
 		else if (((i + 1) <= argc))
 			now = addelemdown(now);
