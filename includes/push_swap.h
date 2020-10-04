@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 10:44:44 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/27 14:10:14 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/10/04 15:54:06 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,8 @@ void					moverlittle(t_stack **h, int index, int mv, int i);
 void					mover(t_stack **h_a, t_stack **h_b, int index);
 int						findminin(t_stack *h_a);
 int						correctnumb(t_stack *now, int min, int mid, int max);
+int						find(int min, int max, t_stack *h_a);
+void					ctb(int min, int max, t_stack **h_a, t_stack **h_b);
+void					ctbgn(int min, int max, t_stack **h_a, t_stack **h_b);
 
 #endif

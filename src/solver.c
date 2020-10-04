@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 14:31:00 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/27 13:10:23 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/10/04 15:55:10 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,10 @@ void	solver(t_stack **h_a, t_stack **h_b)
 
 void	leftelem(int min, int max, t_stack **h_a, t_stack **h_b)
 {
+	while (countofelem(*h_a) > 3 && find(min, max, *h_a))
+		ctb(min, max, h_a, h_b);
 	while (countofelem(*h_a) > 3)
-	{
-		if (correctnumb(*h_a, min, fdmid(*h_a), max))
-		{
-			push(h_b, h_a);
-			output_command(5);
-		}
-		else if (correctnumb((*h_a)->down, min, fdmid(*h_a), max))
-		{
-			rotate(*h_a);
-			output_command(6);
-		}
-		else if (correctnumb(blast(*h_a), min, fdmid(*h_a), max))
-		{
-			reverserotate(*h_a);
-			output_command(9);
-		}
-		else
-		{
-			rotate(*h_a);
-			output_command(6);
-		}
-	}
+		ctbgn(min, max, h_a, h_b);
 }
 
 int		*bubblesort(int count, int *massive)

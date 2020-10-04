@@ -6,7 +6,7 @@
 #    By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/18 12:53:57 by alexzudin         #+#    #+#              #
-#    Updated: 2020/09/24 08:50:32 by alexzudin        ###   ########.fr        #
+#    Updated: 2020/10/04 15:41:02 by alexzudin        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SRC_CHECKER = main_checker.c readfunc.c parsecommands.c validation.c \
 			commands.c readfunc_p2.c
 
 SRC_SWAP = main_push_swap.c readfunc.c parsecommands.c validation.c \
-			commands.c solver.c output.c sort.c sort_p2.c readfunc_p2.c
+			commands.c solver.c output.c sort.c sort_p2.c readfunc_p2.c solv_p2.c
 
 SRC_DIR = src/
 
