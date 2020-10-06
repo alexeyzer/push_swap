@@ -6,15 +6,15 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 08:49:41 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/10/04 15:34:20 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/10/05 14:38:56 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack		*addnew(char **argv, int argc, t_stack *now, int i)
+t_stack		*addnew(char *str, int argc, t_stack *now, int i)
 {
-	now->number = ft_atoi(argv[i]);
+	now->number = ft_atoi(str);
 	if ((i + 1) <= argc)
 		now = addelemdown(now);
 	else

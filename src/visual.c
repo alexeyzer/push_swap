@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_push_swap.c                                   :+:      :+:    :+:   */
+/*   visual.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/07 18:38:59 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/10/06 09:42:39 by alexzudin        ###   ########.fr       */
+/*   Created: 2020/10/05 14:22:35 by alexzudin         #+#    #+#             */
+/*   Updated: 2020/10/05 16:41:32 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		main(int argc, char **argv)
+void	visualor(t_stack *head_a, t_stack *head_b, char *str)
 {
-	t_stack		*head_a;
-	t_stack		*head_b;
-
-	head_b = NULL;
-	if (argc == 1)
-		return (0);
-	if (argc < 1)
+	ft_putstr("Action:");
+	ft_putstr(str);
+	write(1, "\n", 1);
+	ft_putstr("stack A:");
+	while (head_a != NULL)
 	{
-		ft_putendl("Error\n");
-		return (0);
+		write(1, " ", 1);
+		ft_putnbr(head_a->number);
+		head_a = head_a->down;
 	}
-	else
+	write(1, "\n", 1);
+	ft_putstr("stack B:");
+	while (head_b != NULL)
 	{
-		head_a = rd(argv, argc - 1, 0);
-		if (isssort(head_a) == -1)
-			solver(&head_a, &head_b);
-		else
-			endd(head_a, head_b, 0);
-		endd(head_a, head_b, 0);
+		write(1, " ", 1);
+		ft_putnbr(head_b->number);
+		head_b = head_b->down;
 	}
-	return (0);
+	write(1, "\n", 1);
 }

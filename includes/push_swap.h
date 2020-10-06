@@ -6,7 +6,7 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 10:44:44 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/10/04 15:54:06 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/10/06 09:39:09 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ typedef struct			s_stack
 	struct s_stack	*up;
 }						t_stack;
 
-t_stack					*rd(char **argv, int argc);
+t_stack					*rd(char **argv, int argc, int perm);
 void					c_stack(t_stack *head);
 int						endd(t_stack *head_a, t_stack *head_b, int status);
-int						parsecommands(t_stack **head_a, t_stack **head_b);
+int						parsecommands(t_stack **h_a, t_stack **h_b, int v);
 int						strtoint(char *str);
 int						execc(char *st, int siz3, t_stack **h_a, t_stack **h_b);
-void					rdd(char **argv, int argc, t_stack *head);
+void					rdd(char **argv, int argc, t_stack *head, int perm);
 int						dupliforhead(t_stack *now);
 int						duplicates(t_stack *now);
 int						countofelem(t_stack *now);
@@ -47,7 +47,7 @@ int						findbigger(t_stack *now, int number);
 void					truee(t_stack *head_a, t_stack *head_b);
 void					checkresult(t_stack **head_a, t_stack **head_b);
 t_stack					*strf(char *str, int argc, t_stack *now, int i);
-t_stack					*addnew(char **argv, int argc, t_stack *now, int i);
+t_stack					*addnew(char *argv, int argc, t_stack *now, int i);
 t_stack					*addelemdown(t_stack *now);
 int						isssort(t_stack	*head_a);
 int						fdmax(t_stack *now);
@@ -69,8 +69,9 @@ void					moverlittle(t_stack **h, int index, int mv, int i);
 void					mover(t_stack **h_a, t_stack **h_b, int index);
 int						findminin(t_stack *h_a);
 int						correctnumb(t_stack *now, int min, int mid, int max);
-int						find(int min, int max, t_stack *h_a);
-void					ctb(int min, int max, t_stack **h_a, t_stack **h_b);
-void					ctbgn(int min, int max, t_stack **h_a, t_stack **h_b);
+int						find(int min, int max, int mid, t_stack *h_a);
+void					ctb(int mid, int max, t_stack **h_a, t_stack **h_b);
+void					ctbgn(int mid, int max, t_stack **h_a, t_stack **h_b);
+void					visualor(t_stack *head_a, t_stack *head_b, char *str);
 
 #endif

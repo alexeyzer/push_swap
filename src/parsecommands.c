@@ -6,19 +6,22 @@
 /*   By: alexzudin <alexzudin@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 19:23:00 by alexzudin         #+#    #+#             */
-/*   Updated: 2020/09/27 14:09:24 by alexzudin        ###   ########.fr       */
+/*   Updated: 2020/10/06 09:46:33 by alexzudin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		parsecommands(t_stack **head_a, t_stack **head_b)
+int		parsecommands(t_stack **head_a, t_stack **head_b, int vizual)
 {
 	char	*str;
-
+	if (vizual == 1)
+		visualor(*head_a, *head_b, "None");
 	while ((get_next_line(0, &str)) > 0)
 	{
 		execc(str, ft_strlen(str), head_a, head_b);
+		if (vizual == 1)
+			visualor(*head_a, *head_b, str);
 		free(str);
 	}
 	return (0);
